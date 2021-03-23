@@ -1,6 +1,6 @@
-# flutter_application_2
+# flutter_application for "android developing"
 
-A new Flutter project.
+A new Flutter project for game "dnd"
 
 ## Getting Started
 
