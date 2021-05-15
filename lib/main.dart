@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shake/shake.dart';
 import 'dart:math';
 import 'dart:io';
-
+import 'firstScreen.dart';
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,23 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
+
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Title of Application',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
 
 class SecondScreen extends StatelessWidget {
   @override
@@ -90,7 +107,7 @@ class Screen extends State<ThreeScreen> {
   
   void _update(){
     setState((){
-      sleep(Duration(seconds:2));
+      // sleep(Duration(seconds:2));
     ShakeDetector detector = ShakeDetector.autoStart(onPhoneShake: () {
       Random random = new Random();
       _randomNumber = random.nextInt(6)+1;
@@ -100,8 +117,9 @@ class Screen extends State<ThreeScreen> {
 
 }
 void main() {
-  runApp(MaterialApp(
-    home: MainScreen(),
-  ));
+  runApp(MyApp());
+  // runApp(MaterialApp(
+  //   home: MainScreen(),
+  // ));
   
 }
