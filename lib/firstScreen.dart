@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shake/shake.dart';
 import 'dart:math';
 import 'dart:io';
-import 'main.dart';
 import 'bodyOneScreen.dart';
+import 'SecondScreen.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key}) : super(key: key);
- 
+  bool _loading=false;
+  bool _shake=false;
+  int _randomNumber=0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -29,13 +31,21 @@ class MyHomePage extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                   home: new Scaffold(body: new Center(child: new MyBody(),))
                 ),
-              //Center(child: Text("First window")),
+                Center(
+          // ignore: deprecated_member_use
+          child: RaisedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ThreeScreen()));
+              },
+              child: Text('Открыть окно выбора кубиков'))),
               Center(child: Text("Car")),
               Center(child: Text("Transit")),
-              Center(child: Text("Bike"))
+              // Center(child: Text("Bike")),
             ],
           ),
         )
     );
-  }
+  }  
 }
+
